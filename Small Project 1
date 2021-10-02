@@ -1,8 +1,8 @@
 #Exercise 24: 
 #Comments
 #The general approach was to create to short and clean codes that would make the whole process less confusing. It was challenging to understand what exercise 24 requested
-to do with the list and whether the code should be connected together or printing each condition on its own. Since the exercise listed the conditions separately and there 
-was no clear wording to connect them all, I created several vairables that would correspond to each condition separately.
+#to do with the list and whether the code should be connected together or printing each condition on its own. Since the exercise listed the conditions separately and there 
+#was no clear wording to connect them all, I created several vairables that would correspond to each condition separately.
 
 python3
 import nltk
