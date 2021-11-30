@@ -21,6 +21,13 @@ contains_isTitle = [word for word in text6 if word.istitle()] #this condition wo
 print (contains_isTitle) #executes the condition
 
 
+
+FEEDBACK UPDATE:
+import nltk
+from nltk.book import*
+aliList = [word for word in text6 if word.endswith('ise') or 'z' in word or 'pt'in word or word.istitle()] #this condition would list words in text 6 if the words end with 'endings'. 
+print (aliList) #executes the condition
+
 #Exercise 25:
 #Comments
 
