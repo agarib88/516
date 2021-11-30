@@ -8,10 +8,10 @@ import re
 data = open('british_english.txt').read()
 
 # The following line changes words ending with 're' to 'er'
-processed_data = re.sub(r"\b(\w{, })re\b", r"\1er", data)
+processed_data = re.sub(r"\b(\w+)re\b", r"\1er", data)
 
 # This second function change words ending with 'our' to 'or'
-processed_data = re.sub(r"\b(\w{, })our\b", r"\1or", processed_data)
+processed_data = re.sub(r"\b(\w+)our\b", r"\1or", processed_data)
 
 # The last line saves American English version of the original text to another text file
 open("american_english.txt", "w+").write(processed_data)
