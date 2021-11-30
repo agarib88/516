@@ -1,43 +1,4 @@
-#Exercise 18
-import nltk
-from nltk.corpus import stopwords
-try: # Try store stopwords into sw variable, if an exception occurs then download stopwords then store them into sw variable 
-    sw = stopwords.words('english')
-except:
-    nltk.download('stopwords')
-    sw = stopwords.words('english')
-# Split sequence into tokens, extract bigrams using nltk bigrams function and then convert to a list
-bigrams = list(nltk.bigrams(sequence.split()))
-# Convert stop words to set to do intersection with bigrams
-set_sw = set(sw)
-# Iterate over extracted bigrams to remove those with stop words
-for bigram in bigrams:
-    # convert bigrams to set to do intersection
-    set_bigram = set(bigram)
-    # If bigram intersects with stop words, then we want to skip it
-    intersection = set_sw.intersection(set_bigram)
-    if not intersection:
-        # Convert tuple bigram to string to use as a key for the dictionary
-        bigram_join = '_'.join(bigram)
-        # Store occurances of each bigram in the dictionary
-        if bigram_join not in dict_bigrams:
-          dict_bigrams[bigram_join] = 1
-        else:
-            dict_bigrams[bigram_join] += 1
-# Sort the dictionary of bigrams with most occurances to least
-sorted_dict = sorted(dict_bigrams.items(), key=lambda item: item[1], reverse=True)
-# Get the top 50 most occured bigrams
-top_50_bigrams = sorted_dict[0:50]
-# top_50_bigrams = [('really_great', 2), ('great_moving', 1), ('moving_parts', 1)]
-# Convert string bigrams back to list of bigrams
-result = []
-for bigram in top_50_bigrams:
-    bigram = bigram[0].split('')
-    result.append((_bigram, bigram[1]))
-# result = [(['really', 'great'], 2), (['great', 'moving'], 1), (['moving', 'parts'], 1)]
-
-
-OR
+@Exercise 18:
 
 import nltk
 from nltk import *
@@ -63,8 +24,11 @@ bigramfreq = FreqDist(bigramNoStopword) #now we have a list of bigrams - this fu
 print(bigramfreq.most_common(5)) # this function prints the 5o most frequent bigrams
 
 
+
+
 #Exercise 19:
 
+import nltk
 from nltk.corpus import brown
 from nltk import ConditionalFreqDist
 nltk.download('brown')
@@ -75,31 +39,18 @@ genres = brown.categories() #this line categozies all categories in the Brown Co
 #genres  = ['edotorial', 'news', ...] #
 word_genre = [] #this line creates an empty list for the following data 
 
-for item in genres: #this line loops through all genres in the above categories of genre in Brwon corpus; that is, it iterates over genres
+for genre in genres: #this line loops through all genres in the above categories of genre in Brwon corpus; that is, it iterates over genres
     # Get words for each genre in brown corpus
-    for word in brown.words(categories=genre): # this line loops through all words in brown that have the category as genre (
+    #worditheNewsgere = ['The', 'Fulton', 'County', 'Grand', 'Jury', 'said', ...]
+    for item in brown.words(categories=genre): # this line loops through all words in brown that have the category as genre (
         # Create a list of (genre, word) pairs
-        word_genre.append((genre, word))
-        
+        word_genre.append([genre, item])# this line creates a list of 'genre and word' pairs  
 
-brown.words(categories = 'news')
-brown.words(categories = 'dfhs')
-brown.words(categories = 'esdfsdotorial')
-brown.words(categories = 'edotosdfsrial')
-
-
-
-for item in categories:
-   brown.words(categories = item)
-
-
-# Create a conditional Frequency distribution object
 cfdist = ConditionalFreqDist(word_genre)
-# My selected genres for evaluation
-selected_genres = ["reviews", "news", "editorial", "government", "mystery", "adventure"]
+selected_genres = ["reviews", "news"]#, "editorial", "government", "mystery", "adventure"]
 # My selected conjunctive adverbs for evaluation
 conjunctive_adverbs = ["incidentally", "lately", "additionally", "equally", "regardless", "anyway", "undoubtedly", "otherwise", "instead"]
 
 #conclusion: 
 # Generate table of occurances
-cfdist.tabulate(conditions=selected_genres, samples=conjunctive_adverbs)
+cfdist.tabulate(conditions=selected_genres, samples=conjunctive_adverbs) #conditions is what I want to tabuate for 
