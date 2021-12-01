@@ -14,12 +14,13 @@ textBigram = bigrams(sampleText) #This is a function that takes the list of word
 bigramNoStopword = []  #This list is initiated to hold any bigrams with no stopwords
 for x in textBigram: #This is a for loop and what it does is that for any member/item (x) in textBigram itirates over all bigrams in textBigram
     if x[0] not in stopword and x[1] not in stopword:# This conditional checks if the first (x[0]) or second words (x[1]) of bigrams is in the stopword list 
-        if x[0].isalpha() and x[1].isalpha():#this other conditional checks if neither of the first and second words of the bigram are actual words and if they are 
-          #alphabet then it removes punc. marks  (.isalpha() checks if the item is a word) - I tried isalnum() and it would come as numbers
+        if x[0].isalpha() and x[1].isalpha():#this other conditional checks if neither of the first and second words of the bigram are actual words and if
+            #they are alphabet then it removes punc. marks  (.isalpha() checks if the item is a word) - I tried isalnum() and it would come as numbers
             bigramNoStopword.append(x) #this function appends(adds) bigrams wiht above properties/features
                                         #to the bigramNoStopword list  
 
-bigramfreq = FreqDist(bigramNoStopword) #now we have a list of bigrams - this function of freqdist craetes a sorted list of frequntly occuring words in the list of nostopwords
+bigramfreq = FreqDist(bigramNoStopword) #now we have a list of bigrams - this function of freqdist craetes a sorted list of 
+#frequntly occuring words in the list of nostopwords
 print(bigramfreq.most_common(50)) # this function prints the 50 most frequent bigrams
 
 
