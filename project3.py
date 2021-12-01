@@ -8,7 +8,8 @@ import re
 data = open('british_english.txt').read()
 
 # The following line changes words ending with 're' to 'er'
-processed_data = re.sub(r"\b(\w+)re\b", r"\1er", data)
+processed_data = re.sub(r"\b(\w+)re\b", r"\1er", data) #\1=matches the same text as the most recently matched by the 1st capturing word. 
+#\w = matches any word character. \b = asserts position at a word boundary. 
 
 # This second function change words ending with 'our' to 'or'
 processed_data = re.sub(r"\b(\w+)our\b", r"\1or", processed_data)
